@@ -1,0 +1,10 @@
+STEP 1: CREATE SCHEMA JEBICK<-(AnyName) // CREATE SCHEMA DB
+/------------------------\
+STEP 2: USE JEBICK<- Using JEBICK In SCHEMA
+/------------------------\
+STEP 3: CREATE TABLE TEACHER<-(AnyName)//CREATE TABLE
+/-------------------------\
+STEP 4: ALTER TABLE TEACHER ADD COLUMN DEGREE<-(AnyName FOR COLUMN NAME) VARCHAR(100)
+(1)ALTER TABLE TEACHER age age int // If you want change COLUMN name use this command 
+/-------------------------\
+STEP 5: SELECT * FROM TEACHER<-( TABLE NAME )
