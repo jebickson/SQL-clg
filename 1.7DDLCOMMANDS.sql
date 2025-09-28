@@ -1,33 +1,24 @@
---Input (SQL Code)
-
---Method 1: Default Constraint in CREATE TABLE
+-- Input (SQL Code):
+Method 1: Default Constraint in CREATE TABLE
 
 CREATE TABLE Sales1 (
-    Sale_Id int NOT NULL UNIQUE,
-    Sale_Amount int NOT NULL,
-    Vendor_Name varchar(255) DEFAULT 'Unknown Vendor',
-    Sale_Date date,
-    Profit int
+    Sale_Id INT NOT NULL UNIQUE,
+    Sale_Amount INT NOT NULL,
+    Vendor_Name VARCHAR(255) DEFAULT 'Unknown Vendor',
+    Sale_Date DATE,
+    Profit INT
 );
---Perhaps you need a different "datestyle" setting
---insert values
-insert into Sales1 values(1,10.000,'Abc Trader','22-4-2010',1000);
-insert into Sales1 values(2,20.000,'XYZ mill','22-1-2096',2000);
-insert into Sales1 values(3,30.000,'jeb','23-7-2015',1500);
-insert into Sales1 values(4,40.000,'jazz','8-9-2011',800);
-insert into Sales1 values(5,50.000,'misa','22-4-2010',3000);
---Method 2: Default Constraint in ALTER TABLE
---ALTER TABLE Sales
---MODIFY Vendor_Name DEFAULT 'Unknown Vendor';
-/*Output (from SQL command line)
 
-SQL> CREATE TABLE Sales1 (
-  2     Sale_Id int NOT NULL UNIQUE,
-  3     Sale_Amount int NOT NULL,
-  4     Vendor_Name varchar(255) DEFAULT 'Unknown Vendor',
-  5     Sale_Date date,
-  6     Profit int
-  7  );
+-- Perhaps you need a different "datestyle" setting
+-- insert values
+INSERT INTO Sales1 VALUES (1, 10000, 'Abc Trader', '2010-04-22', 1000);
+INSERT INTO Sales1 VALUES (2, 20000, 'XYZ mill', '2096-01-22', 2000);
+INSERT INTO Sales1 VALUES (3, 30000, 'jeb', '2015-07-23', 1500);
+INSERT INTO Sales1 VALUES (4, 40000, 'jazz', '2011-09-08', 800);
+INSERT INTO Sales1 VALUES (5, 50000, 'misa', '2010-04-22', 3000);
 
-Table created.
-*/
+SELECT * FROM Sales1;
+
+Method 2: Default Constraint in ALTER TABLE
+ALTER TABLE Sales1
+MODIFY COLUMN Vendor_Name VARCHAR(255) DEFAULT 'Unknown Vendor';

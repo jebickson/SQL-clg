@@ -1,41 +1,30 @@
---Input (SQL Code):
+Input (SQL Code):
 
---Method 1: Unique Constraint in-line without name
+Method 1: Unique Constraint in-line without name
 
---CREATE TABLE person
---(
---    pno int,
---    pname varchar(20),
---    mobile number(12) UNIQUE
---);
---Method 2: Unique Constraint in-line with name
---Constraint Name: uq_mobile
---CREATE TABLE person1
---(
---    pno int,
---    pname varchar(20),
---    mobile number(12) CONSTRAINT uq_mobile UNIQUE
---);
---Method 3: Unique Constraint out-of-line with name
---CREATE TABLE person
---(
---    pno int,
---    pname varchar(20),
---    mobile number(12),
---    CONSTRAINT uq_mobile UNIQUE (mobile)
---);
---Method 4: Adding a UNIQUE Constraint after Creation
---ALTER TABLE person 
---ADD CONSTRAINT uq_mobile UNIQUE (mobile);
+CREATE TABLE person (
+    pno INT,
+    pname VARCHAR(20),
+    mobile BIGINT UNIQUE
+);
 
+Method 2: Unique Constraint in-line with name
+CREATE TABLE person1 (
+    pno INT,
+    pname VARCHAR(20),
+    mobile BIGINT,
+    CONSTRAINT uq_mobile UNIQUE (mobile)
+);
 
---Output (from SQL command line):
---CREATE TABLE person1
---(
---      pno int,
---     pname varchar(20),
---     mobile number(12) CONSTRAINT uq_mobile UNIQUE
---);
---insert into person values(1,'jebi',9940334);
---insert into person values(2,'sam',3338987);
---Table created.
+Method 3: Unique Constraint out-of-line with name
+CREATE TABLE person2 (
+    pno INT,
+    pname VARCHAR(20),
+    mobile BIGINT,
+    CONSTRAINT uq_mobile UNIQUE (mobile)
+);
+
+Method 4: Adding a UNIQUE Constraint after Creation
+ALTER TABLE person2
+ADD CONSTRAINT uq_mobile UNIQUE (mobile);
+

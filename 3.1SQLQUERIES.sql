@@ -1,55 +1,45 @@
---✅ Query 1
+-- Query 1
+CREATE TABLE student1 (
+    rollno INT,
+    sname VARCHAR(50),
+    age INT,
+    course VARCHAR(10)
+);
 
---Input (SQL Code):
+INSERT INTO student1 VALUES (6, 'Anu', 23, 'CS');
+INSERT INTO student1 VALUES (4, 'Chetan', 20, 'BCA');
+INSERT INTO student1 VALUES (5, 'Nihal', 19, 'BBA');
+INSERT INTO student1 VALUES (8, 'Arpit', 21, 'CSA');
+INSERT INTO student1 VALUES (9, 'Jebickson', 22, 'CS');
 
---SELECT * FROM student1;
+SELECT * FROM student1;
 
---Output:
-/*
-ROLLNO   SNAME    AGE   COURSE
-------   ------   ---   ------
-6        Anu      23    CS
-4        Chetan   20    BCA
-5        Nihal    19    BBA
-8        Arpit    21    CSA
-✅ Query 2
+-- Query 2
+CREATE TABLE customers (
+    customer_id INT,
+    name VARCHAR(100),
+    credit_limit INT
+);
 
-Input (SQL Code):
+INSERT INTO customers VALUES (177, 'United Continental Holdings', 5000);
+INSERT INTO customers VALUES (188, 'INTL FCStone', 5000);
+INSERT INTO customers VALUES (184, 'Publix Super Markets', 1200);
+INSERT INTO customers VALUES (207, 'ConocoPhillips', 2400);
+INSERT INTO customers VALUES (199, '3M', 1200);
 
 SELECT customer_id, name, credit_limit FROM customers;
 
-Output:
+-- Query 3
+ALTER TABLE customers ADD address VARCHAR(255);
+SET SQL_SAFE_UPDATES = 0;
 
-CUSTOMER_ID   NAME                           CREDIT_LIMIT
------------   -----------------------------  ------------
-177           United Continental Holdings    5000
-188           INTL FCStone                   5000
-184           Publix Super Markets           1200
-207           ConocoPhillips                 2400
-199           3M                             1200
-192           Exelon                         500
-208           Tesoro                         500
-207           Northwestern Mutual            3600
-220           Enterprise Products Partners   2400
-204           Rite Aid                       3600
-212           Qualcomm                       500
-
-
----
-
-✅ Query 3
-
-Input (SQL Code):
+UPDATE customers SET address = 'Via Frenzy 6903, Roma' WHERE name = '3M';
+UPDATE customers SET address = 'Langstr 14, Zuerich, ZH' WHERE name = 'ADP';
+UPDATE customers SET address = '2120 E Kimberly Rd, Davenport, IA' WHERE name = 'AECOM';
+UPDATE customers SET address = '123 Wall St, New York, NY' WHERE name = 'Publix Super Markets';
+UPDATE customers SET address = '456 Market St, San Francisco, CA' WHERE name = 'ConocoPhillips';
+SET SQL_SAFE_UPDATES = 1;
 
 SELECT name, address, credit_limit
 FROM customers
 ORDER BY name ASC;
-
-Output:
-
-NAME    ADDRESS                               CREDIT_LIMIT
------   -----------------------------------   ------------
-3M      Via Frenzy 6903, Roma                 1200
-ADP     Langstr 14, Zuerich, ZH               700
-AECOM   2120 E Kimberly Rd, Davenport, IA     500
-*/

@@ -1,29 +1,33 @@
---Input (SQL Code):
+Input (SQL Code):
 
---Method 1: Composite Primary Key Using CREATE TABLE
+Method 1: Composite Primary Key Using CREATE TABLE
 
-CREATE TABLE customer1
-(
-    cust_id NUMBER(3),
+CREATE TABLE customer1 (
+    cust_id INT,
     cust_name VARCHAR(30),
-    phone_no NUMBER(10),
+    phone_no BIGINT,
     CONSTRAINT cust_pk PRIMARY KEY (cust_id, phone_no)
 );
-insert into customer1 values();
-insert into customer1 values();
---Method 2: Composite Primary Key Using ALTER TABLE
 
---ALTER TABLE customer
---ADD CONSTRAINT cust_cid_pk PRIMARY KEY (cust_id, phone_no);
+INSERT INTO customer1 VALUES (101, 'Arun', 9876543210);
+INSERT INTO customer1 VALUES (102, 'Bhavya', 9123456780);
+INSERT INTO customer1 VALUES (101, 'Arun', 9988776655); -- same cust_id, different phone_no ✔️
 
---Output (from SQL command line):
+select * FROM CUSTROMER1;
 
---SQL> CREATE TABLE customer1
---    (
---       cust_id NUMBER(3),
---       cust_name VARCHAR(30),
---      phone_no NUMBER(10),
---    CONSTRAINT cust_pk PRIMARY KEY (cust_id, phone_no)
---  );
+Method 2: Composite Primary Key Using ALTER TABLE
 
---Table created.
+CREATE TABLE customer (
+    cust_id INT,
+    cust_name VARCHAR(30),
+    phone_no BIGINT
+);
+
+ALTER TABLE customer
+ADD CONSTRAINT cust_cid_pk PRIMARY KEY (cust_id, phone_no);
+
+INSERT INTO customer VALUES (201, 'Chitra', 9876543210);
+INSERT INTO customer VALUES (202, 'David', 9123456780);
+INSERT INTO customer VALUES (201, 'Chitra', 9988776655); -- valid: same ID, different phone
+
+select * FROM CUSTROMER;

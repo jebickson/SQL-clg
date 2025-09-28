@@ -1,16 +1,15 @@
--- Products table
+- Products table
 CREATE TABLE products (
-    product_id    INT PRIMARY KEY,
-    product_name  VARCHAR(100),
-    list_price    DECIMAL(10,2),
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(100),
+    list_price DECIMAL(10,2),
     standard_cost DECIMAL(10,2)
 );
-
 -- Order items table
 CREATE TABLE order_items (
-    order_id   INT,
+    order_id INT,
     product_id INT,
-    quantity   INT,
+    quantity INT,
     PRIMARY KEY(order_id, product_id)
 );
 -- Insert into products
@@ -35,20 +34,3 @@ SELECT ROUND(AVG(standard_cost), 2) AS avg_std_cost FROM products;
 SELECT COUNT(*) AS total_products FROM products;
 SELECT MAX(list_price) AS max_price FROM products;
 SELECT MIN(list_price) AS min_price FROM products;
-
---Expected Output
-TOTAL_QUANTITY
---------------
-110
-
-AVG_STD_COST
-------------
-3950.00
-
-MIN_PRICE
----------
-199.99
-
-TOTAL_PRODUCTS
---------------
-6
